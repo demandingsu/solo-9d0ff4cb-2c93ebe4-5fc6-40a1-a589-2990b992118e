@@ -42,12 +42,15 @@
 </div>
 {% endfor %}
 <form method="post" action="/download">
+  <input type="hidden" name="token" value="{{ token }}">
   <button type="submit" class="primary" disabled>确认并下载 SQLite 子库</button>
 </form>
 {% else %}
 <p class="ok">引用校验通过：对照与校准引用均已补齐，无悬空、无指向已剔除读数的引用。</p>
 <form method="post" action="/download">
+  <input type="hidden" name="token" value="{{ token }}">
   <button type="submit" class="primary">确认并下载 SQLite 子库</button>
 </form>
+<p class="muted">确认以本页预览内容为准；若在其他页面改选、调整剔除或换库，需重新预览后才能下载。</p>
 {% endif %}
 {% endblock %}
